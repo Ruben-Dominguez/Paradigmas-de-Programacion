@@ -1,0 +1,17 @@
+#nombre {
+    background-color: darkgrey;
+    font-family: Verdana;
+    color: aqua;
+}
+
+#email {
+    background-color: darkslategray;
+    font-family: bold;
+    color: lightcoral;
+}
+
+#mes {
+    background-color: blueviolet;
+    font-style: italic;
+    color: bisque;
+}
