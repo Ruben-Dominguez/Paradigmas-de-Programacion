@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>Escribe el primer numero:</p>
+    <input type="number" id="numero1">
+    <p>Escribe el segundo numero:</p>
+    <input type="number" id="numero2">
+    <p>Seleccione una opcion:</p>
+    <select id="opcion">
+        <option value="">Seleccionar</option>
+        <option value="1">Sumar</option>
+        <option value="2">Restar</option>
+        <option value="3">Multiplicar</option>
+    </select>
+    <button onclick="operacion();">Calcular</button>
+    <p id="res"></p>
+
+    <script>
+        const operacion = () => {
+            let numero1 = document.getElementById("numero1").value;
+            let numero2 = document.getElementById("numero2").value;
+            let opcion = document.getElementById("opcion").value;
+            let res = 0;
+
+            switch(opcion){
+                case "1":
+                    res = parseInt(numero1) + parseInt(numero2);
+                    break;
+                case "2":
+                    res = parseInt(numero1) - parseInt(numero2);
+                    break;
+                case "3":
+                    res = parseInt(numero1) * parseInt(numero2);
+                    break;
+            }
+            document.getElementById("res").innerHTML = res;
+        }
+        
+    </script>
+
+
+</body>
+</html>
