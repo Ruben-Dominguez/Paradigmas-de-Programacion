@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html">Regresar</a>
+    <h1 style="width:100%; text-align:center; display:block;" id="titulo"></h1>
+    <img style="width:auto; margin:auto auto; display:block;" id="imagen" src="" alt="">
+
+    <img style="width:30%; margin:auto auto; display:block;" id="cargando" src="https://colossalmedia.com/wp-content/uploads/2019/06/loading-bananas.gif" alt="cargando-gif">
+    <p id="error"></p>
+
+    <script>
+        const url = new URL(window.location.href);
+        console.log(url);
+        const parametro = url.searchParams;
+        const id = parametro.get("id");
+        console.log(id);
+        
+        const urlDetalle = `https://jsonplaceholder.typicode.com/photos/${id}`;
+        fetch(urlDetalle)
+            .then(response => response.json())
+            .then(foto => {
+                document.getElementById("titulo").innerHTML = foto.title;
+                document.getElementById("imagen").src = foto.url;
+            })
+            .catch(error => {
+                document.getElementById("error").innerHTML = error.message;
+                console.error(error);
+            })
+            .finally(() => {
+                document.getElementById("cargando").src = "";
+                document.getElementById("cargando").alt = "";
+                console.log("Proceso terminado");
+            })
+
+    </script>
+    
+</body>
+</html>
